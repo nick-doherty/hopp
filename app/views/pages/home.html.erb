@@ -8,8 +8,14 @@
   <body>
     <h1>Welcome to hopp...</h1>
     <p>Some awesome text goes here.</p>
-    <%= link_to 'Get ready to hopp', new_user_path, :class => 'btn btn-primary btn-lg' %>
-    <%= button_to 'Logout', logout_path, :method => :delete, :class => 'btn btn-warning' %>
+
+    <%if @current_user.present? %>
+      <p>Welcome, <%= @current_user.name %></p>
+      <%= button_to 'Logout', logout_path, :method => :delete, :class => 'btn btn-warning' %>
+    <% else %>
+      <%= link_to 'Sign Up', new_user_path, :class => 'btn btn-primary btn-lg' %>
+      <%= button_to 'Login', user_login_path, :class => 'btn btn-success' %>
+    <% end %>
   </body>
 
   <footer>

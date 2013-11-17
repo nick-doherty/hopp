@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
 
-      redirect_to root_path
+      # new path to set user interests 
+      render :create_interests
+
     else
       render :new
     end
