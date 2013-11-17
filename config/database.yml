@@ -1,9 +1,0 @@
-
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: hopp_app_development
-  pool: 5
-  host: localhost
-  username: matthewthees
-  password:
