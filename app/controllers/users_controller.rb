@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @company = Company.new
   end
 
   def create
@@ -17,13 +16,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #where do we get @authenticated from?
-    @user = @authenticated
+    #where do we get @current_user from?
+    @user = @current_user
     render "edit"
   end
 
   def update
-    @user = @authenticated
+    @user = @current_user
     if @user.update_attributes params[:user]
       redirect_to root_path
     else
@@ -33,7 +32,7 @@ class UsersController < ApplicationController
 
   private
   def check_if_logged_in
-    redirect_to(root_path) if @authenticated.nil?
+    redirect_to(root_path) if @current_user.nil?
   end
 
 end
