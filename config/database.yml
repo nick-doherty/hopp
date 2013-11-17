@@ -5,5 +5,5 @@ development:
   database: hopp_app_development
   pool: 5
   host: localhost
-  username: nick
+  username: matthewthees
   password:
