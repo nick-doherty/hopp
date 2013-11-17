@@ -11,4 +11,7 @@ HoppApp::Application.routes.draw do
       get 'edit'
     end
   end
+
+  resources :interests, :except => [:show]
+
 end
