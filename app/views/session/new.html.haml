@@ -1,0 +1,14 @@
+%div.col-md-5
+  %div.user-login
+    %div.login-box
+      %h2.white Enter your Username and Password
+      %p.white note: Username and Password are case sensitive!
+
+      = form_tag '/user/login' do
+        %div.form-group
+          =label_tag 'email', nil, :autofocus => true
+          =text_field_tag 'email', nil, :class => 'form-control'
+        %div.form-group
+          =label_tag 'password'
+          =password_field_tag 'password', nil, :class => 'form-control'
+        =submit_tag 'Login', :class => 'btn btn-lg btn-success'

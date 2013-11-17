@@ -3,7 +3,7 @@ HoppApp::Application.routes.draw do
 
   get '/user/login' => 'session#new'
   post '/user/login' => 'session#create'
-  delete '/user/login' => 'session#destroy'
+  delete '/user/login' => 'session#destroy', :as => 'logout'
 
 
   resources :users, :except => [:edit] do
