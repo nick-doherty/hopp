@@ -7,10 +7,22 @@ class InterestsController < ApplicationController
   end
 
   def create
-    @interest = Interest.new params[:interests]
-    # raise params.inspect
-    @interest.user_id = @current_user.id
-    @interest.save
+
+    params[:soundcloud_interest].each do |interest|
+      @interest = Interest.new interest
+
+      @interest.user_id = @current_user.id
+      @interest.save
+
+    end
+
+    params[:youtube_interest].each do |interest|
+      @interest = Interest.new interest
+
+      @interest.user_id = @current_user.id
+      @interest.save
+
+    end
 
     redirect_to root_path
   end
