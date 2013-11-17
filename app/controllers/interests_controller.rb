@@ -8,7 +8,7 @@ class InterestsController < ApplicationController
 
   def create
     @interest = Interest.new params[:interests]
-    raise params.inspect
+    # raise params.inspect
     @interest.user_id = @current_user.id
     @interest.save
 
