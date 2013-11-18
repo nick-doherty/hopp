@@ -16,3 +16,5 @@
       =f.label :password_confirmation
       =f.password_field :password_confirmation, :class => 'form-control'
     =f.submit 'Update', :class => "btn btn-success blue"
+
+  = link_to 'Edit Interests', edit_interest_path(@current_user)
