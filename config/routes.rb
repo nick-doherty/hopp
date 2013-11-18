@@ -14,4 +14,6 @@ HoppApp::Application.routes.draw do
 
   resources :interests, :except => [:show]
 
+  resources :content
+
 end
