@@ -8,18 +8,24 @@ class InterestsController < ApplicationController
 
   def create
 
+    soundcloud = Source.find_by_source_name('soundcloud')
+
     params[:soundcloud_interest].each do |interest|
-      @interest = Interest.new interest
+      @interest = Interest.new :interest_name => interest
 
       @interest.user_id = @current_user.id
+      @interest.source_id = soundcloud.id
       @interest.save
 
     end
 
+    youtube = Source.find_by_source_name('youtube')
+
     params[:youtube_interest].each do |interest|
-      @interest = Interest.new interest
+      @interest = Interest.new :interest_name => interest
 
       @interest.user_id = @current_user.id
+      @interest.source_id = youtube.id
       @interest.save
 
     end
