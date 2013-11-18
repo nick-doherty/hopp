@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131116000440) do
+ActiveRecord::Schema.define(:version => 20131118012518) do
 
   create_table "bookmarks", :force => true do |t|
-    t.integer  "use_id"
+    t.integer  "user_id"
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(:version => 20131116000440) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "users_interests", :id => false, :force => true do |t|
+    t.integer "user_id"
+    t.integer "interest_id"
   end
 
 end
