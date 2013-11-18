@@ -2,7 +2,10 @@ class InterestsController < ApplicationController
   # before_filter :check_if_logged_in, :except => [:new]
 
   def new
-    @interest = Interest.new
+    soundcloud = Source.find_by_source_name "soundcloud"
+    youtube = Source.find_by_source_name "youtube"
+    @soundcloud_interests = Interest.where(:source_id => soundcloud.id)
+    @youtube_interests = Interest.where(:source_id => youtube.id)
 
   end
 
@@ -10,23 +13,19 @@ class InterestsController < ApplicationController
 
     soundcloud = Source.find_by_source_name('soundcloud')
 
-    params[:soundcloud_interest].each do |interest|
-      @interest = Interest.new :interest_name => interest
+    params[:user][:interest_ids].each do |interest_id|
+      @interest = Interest.find interest_id
 
-      @interest.user_id = @current_user.id
-      @interest.source_id = soundcloud.id
-      @interest.save
+      @current_user.interests << @interest
 
     end
 
     youtube = Source.find_by_source_name('youtube')
 
-    params[:youtube_interest].each do |interest|
-      @interest = Interest.new :interest_name => interest
+    params[:user][:interest_ids].each do |interest_id|
+      @interest = Interest.find interest_id
 
-      @interest.user_id = @current_user.id
-      @interest.source_id = youtube.id
-      @interest.save
+      @current_user.interests << @interest
 
     end
 
@@ -34,7 +33,10 @@ class InterestsController < ApplicationController
   end
 
   def edit
-    @interest = Interest.find params[:id]
+
+    @soundcloud_interests = Interest.where(:source_id => Source.find_by_source_name('soundcloud').id)
+    @youtube_interests = Interest.where(:source_id => Source.find_by_source_name('youtube').id )
+
   end
 
 end

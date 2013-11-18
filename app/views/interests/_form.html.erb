@@ -1,43 +1,25 @@
-<%= form_tag '/interests' do %>
-<div class="col-md-5">
-  <h2>What do you like to listen to?</h2>
+<%= form_tag '/interests', :method => :post do %>
 
-      <input type="checkbox" name="soundcloud_interest[]" value="hiphop">Hip Hop<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="reggae">Reggae<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="electronic">Electronic<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="pop">Pop<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="rock">Rock<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="classical">Classical<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="metal">Metal<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="world">World<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="jazz&blues">Jazz & Blues<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="comedy">Comedy<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="news">News<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="sports">Sports<br>
-      <input type="checkbox" name="soundcloud_interest[]" value="books">Books<br>
+<h2>What do you listen to?</h2>
 
+<% @soundcloud_interests.order(:interest_name).each do |interest| %>
+  <p>
+    <%= check_box_tag 'user[interest_ids][]', interest.id,
+                      interest.id.in?(@current_user.interest_ids) %>
+    <%= interest.interest_name %>
+  </p>
+<% end %>
 
+<h2>What do you watch on YouTube?</h2>
 
-</div>
+<% @youtube_interests.order(:interest_name).each do |interest| %>
+  <p>
+    <%= check_box_tag 'user[interest_ids][]', interest.id,
+                      interest.id.in?(@current_user.interest_ids) %>
+    <%= interest.interest_name %>
+  </p>
+<% end %>
 
-<div class="col-md-5">
-  <h2>What are you favorite catagories on YouTube?</h2>
-      <input type="checkbox" name="youtube_interest[]" value="top_rated">Top Rated<br>
-      <input type="checkbox" name="youtube_interest[]" value="movies">Movies<br>
-      <input type="checkbox" name="youtube_interest[]" value="trailers">Trailers<br>
-      <input type="checkbox" name="youtube_interest[]" value="tech">Tech<br>
-      <input type="checkbox" name="youtube_interest[]" value="news">News<br>
-      <input type="checkbox" name="youtube_interest[]" value="entertainment">Entertainment<br>
-      <input type="checkbox" name="youtube_interest[]" value="comedy">Comedy<br>
-      <input type="checkbox" name="youtube_interest[]" value="games">Games<br>
-      <input type="checkbox" name="youtube_interest[]" value="sports">Sports<br>
-      <input type="checkbox" name="youtube_interest[]" value="music">Music<br>
-      <input type="checkbox" name="youtube_interest[]" value="travel">Travel<br>
-      <input type="checkbox" name="youtube_interest[]" value="animals">Animals<br>
-      <input type="checkbox" name="youtube_interest[]" value="howto">Howto<br>
+<%= button_to 'submit' %>
 
-</div>
-
-  <input type="submit" value="Save" class="btn btn-primary">
-
-<%end%>
+<% end %>
