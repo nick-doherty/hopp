@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HoppApp</title>
+  <title>Get ready to hopp!</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 </head>
+
 <body>
-
-	<nav class="navbar navbar-default" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Home</a>
-          <ul class="nav navbar-nav">
-            <%== authentication_menu %>
-          </ul>
+  <div data-role="page">
+    <div data-role="header">
+      <div data-role="navbar">
+      <%== authentication_menu %>
       </div>
-    </nav>
-
-<%= yield %>
-
+    </div>
+    <div data-role="content">
+      <%= yield %>
+    </div>
+    <div data-role="footer">
+      <p>&copy; Nick Doherty, Matt Thees 2013</p>
+    </div>
+  </div>
 </body>
 </html>

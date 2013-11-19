@@ -1,28 +1,11 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Let's hopp!</title>
-  </head>
+<h1 class="logo-large">hopp</h1>
 
-  <body>
+<p>Fill up your time with your favourite content. Every second counts.</p>
 
-    <h1>Welcome to hopp...</h1>
-    <p>Some awesome text goes here.</p>
-
-    <%if @current_user.present? %>
-      <p>Welcome, <%= @current_user.name %></p>
-      <%= button_to 'Logout', logout_path, :method => :delete, :class => 'btn btn-warning' %>
-    <% else %>
-      <%= link_to 'Sign Up', new_user_path, :class => 'btn btn-primary btn-lg' %>
-      <%= button_to 'Login', user_login_path, :class => 'btn btn-success' %>
-    <% end %>
-
-
-
-  </body>
-
-  <footer>
-    <p>&copy; Nick Doherty, Matt Thees 2013</p>
-  </footer>
-  </html>
+<%if @current_user.present? %>
+  <p>Welcome, <%= @current_user.name %></p>
+  <%= button_to 'Logout', logout_path, :method => :delete, "data-role" => "button" %>
+<% else %>
+  <%= link_to 'Sign Up', new_user_path, "data-role" => "button" %>
+  <%= button_to 'Login', user_login_path, "data-role" => "button" %>
+<% end %>
