@@ -29,8 +29,10 @@ Interest.create :source_id => soundcloud.id, :interest_name => 'Rock'
 Interest.create :source_id => soundcloud.id, :interest_name => 'Classical'
 Interest.create :source_id => soundcloud.id, :interest_name => 'Metal'
 Interest.create :source_id => soundcloud.id, :interest_name => 'World'
-Interest.create :source_id => soundcloud.id, :interest_name => 'Jazz & Blues'
+Interest.create :source_id => soundcloud.id, :interest_name => 'JazzBlues'
 Interest.create :source_id => soundcloud.id, :interest_name => 'Comedy'
 Interest.create :source_id => soundcloud.id, :interest_name => 'News'
 Interest.create :source_id => soundcloud.id, :interest_name => 'Sports'
 Interest.create :source_id => soundcloud.id, :interest_name => 'Books'
+
+

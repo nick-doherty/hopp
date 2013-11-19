@@ -4,6 +4,7 @@ class InterestsController < ApplicationController
   def new
     soundcloud = Source.find_by_source_name "soundcloud"
     youtube = Source.find_by_source_name "youtube"
+
     @soundcloud_interests = Interest.where(:source_id => soundcloud.id)
     @youtube_interests = Interest.where(:source_id => youtube.id)
 

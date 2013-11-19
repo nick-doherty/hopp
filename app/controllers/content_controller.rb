@@ -14,15 +14,21 @@ class ContentController < ApplicationController
     @show = content_type[i]
 
     if @show == content_type[0]
-      client = YouTubeIt::Client.new(:username => "nick.doherty", :password =>  "_____", :dev_key => "AIzaSyBcOSkLmd0kFk3zKyWP5hu3i_vo4XSz05E")
+      client = YouTubeIt::Client.new(:username => "nick.doherty", :password =>  "dingolover1888", :dev_key => "AIzaSyBcOSkLmd0kFk3zKyWP5hu3i_vo4XSz05E")
 
-      @video = client.videos_by(:categories => [:news]).videos.sample
+      interest = @current_user.interests.where(:source_id => Source.find_by_source_name('youtube').id ).sample.interest_name
+      random_youtube_interest = ":" + interest
+      n = (1 + rand(9))
+
+      @video = client.videos_by(:categories => [random_youtube_interest], :per_page => 50, :page => n, :fields => {:view_count => "5000"}).videos.shuffle.first
 
 
     elsif @show == content_type[1]
       client = Soundcloud.new(:client_id => '2807db7b829c81b57f6eff2c8d862e2a')
 
-      track_url = client.get('/tracks', :genres => 'comedy').sample.uri
+      @random_soundcloud_interest = @current_user.interests.where(:source_id => Source.find_by_source_name('soundcloud').id ).shuffle.first.interest_name
+
+      track_url = client.get('/tracks', :genres => @random_soundcloud_interest.downcase).sample.uri
       @embed_info = client.get('/oembed', :url => track_url)
 
 
