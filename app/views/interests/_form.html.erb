@@ -2,23 +2,27 @@
 
 <h2>What do you listen to?</h2>
 
-<% @soundcloud_interests.order(:interest_name).each do |interest| %>
-  <p>
-    <%= check_box_tag 'user[interest_ids][]', interest.id,
-                      interest.id.in?(@current_user.interest_ids) %>
-    <%= interest.interest_name %>
-  </p>
-<% end %>
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup">
+    <% @soundcloud_interests.order(:interest_name).each do |interest| %>
+        <%= check_box_tag 'user[interest_ids][]', interest.id,
+                          interest.id.in?(@current_user.interest_ids), :id => "sc_#{interest.id}" %>
+        <label for="sc_<%= interest.id %>"><%= interest.interest_name %></label>
+    <% end %>
+  </fieldset>
+</div>
 
 <h2>What do you watch on YouTube?</h2>
 
-<% @youtube_interests.order(:interest_name).each do |interest| %>
-  <p>
-    <%= check_box_tag 'user[interest_ids][]', interest.id,
-                      interest.id.in?(@current_user.interest_ids) %>
-    <%= interest.interest_name %>
-  </p>
-<% end %>
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup">
+    <% @youtube_interests.order(:interest_name).each do |interest| %>
+        <%= check_box_tag 'user[interest_ids][]', interest.id,
+                          interest.id.in?(@current_user.interest_ids), :id => "yt_#{interest.id}" %>
+        <label for="yt_<%= interest.id %>"><%= interest.interest_name %></label>
+    <% end %>
+   </fieldset>
+</div>
 
 <%= button_to 'submit' %>
 

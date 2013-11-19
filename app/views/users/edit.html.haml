@@ -1,20 +1,19 @@
-%div.col-md-5
+%div
 
-  %h2= "Edit User Account"
+  = link_to 'Edit Your Interests', edit_interest_path(@current_user), {:class => 'button_right', :data => {:role => 'button', :icon => 'gear', :mini => 'true', :inline => 'true' }}
 
+  %h2= "Change Password"
   = form_for @user do |f|
-    %div.form-group
+    %div{ :data => {:role => 'fieldcontain' }}
       =f.label :name
-      =f.text_field :name, :autofocus => true, :class => 'form-control'
-    %div.form-group
+      =f.text_field :name, :autofocus => true
+    %div{ :data => {:role => 'fieldcontain' }}
       =f.label :email
-      =f.text_field :email, :class => 'form-control'
-    %div.form-group
+      =f.text_field :email
+    %div{ :data => {:role => 'fieldcontain' }}
       =f.label :password
-      =f.password_field :password, :class => 'form-control'
-    %div.form-group
+      =f.password_field :password
+    %div{ :data => {:role => 'fieldcontain' }}
       =f.label :password_confirmation
-      =f.password_field :password_confirmation, :class => 'form-control'
-    =f.submit 'Update', :class => "btn btn-success blue"
-
-  = link_to 'Edit Interests', edit_interest_path(@current_user)
+      =f.password_field :password_confirmation
+    =f.submit 'Submit'
