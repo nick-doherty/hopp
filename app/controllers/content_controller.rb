@@ -14,22 +14,27 @@ class ContentController < ApplicationController
     @show = content_type[i]
 
     if @show == content_type[0]
-      client = YouTubeIt::Client.new(:username => "nick.doherty", :password =>  "dingolover1888", :dev_key => "AIzaSyBcOSkLmd0kFk3zKyWP5hu3i_vo4XSz05E")
+      # raise params.inspect
+      # client = YouTubeIt::Client.new(:username => "nick.doherty", :password =>  "dingolover1888", :dev_key => "AIzaSyBcOSkLmd0kFk3zKyWP5hu3i_vo4XSz05E")
 
-      interest = @current_user.interests.where(:source_id => Source.find_by_source_name('youtube').id ).sample.interest_name
-      random_youtube_interest = ":" + interest
-      n = (1 + rand(9))
+      # interest = @current_user.interests.where(:source_id => Source.find_by_source_name('youtube').id ).sample.interest_name
+      # random_youtube_interest = ":" + interest
+      # n = (1 + rand(9))
 
-      @video = client.videos_by(:categories => [random_youtube_interest], :per_page => 50, :page => n, :fields => {:view_count => "5000"}).videos.shuffle.first
-
+      # @video = client.videos_by(:categories => [random_youtube_interest], :per_page => 50, :page => n, :fields => {:view_count => "5000"}).videos.shuffle.first
+      @video = Content.where(:interest_id => 11).shuffle.first.url
 
     elsif @show == content_type[1]
-      client = Soundcloud.new(:client_id => '2807db7b829c81b57f6eff2c8d862e2a')
+      #raise params.inspect
+      @check = Content.where(:interest_id => 17).shuffle.first.html
 
-      @random_soundcloud_interest = @current_user.interests.where(:source_id => Source.find_by_source_name('soundcloud').id ).shuffle.first.interest_name
+      # raise params.inspect
+      #client = Soundcloud.new(:client_id => '2807db7b829c81b57f6eff2c8d862e2a')
 
-      track_url = client.get('/tracks', :genres => @random_soundcloud_interest.downcase).sample.uri
-      @embed_info = client.get('/oembed', :url => track_url)
+      # @random_soundcloud_interest = @current_user.interests.where(:source_id => Source.find_by_source_name('soundcloud').id ).shuffle.first.interest_name
+
+      # track_url = client.get('/tracks', :genres => @random_soundcloud_interest.downcase).sample.uri
+      #@embed_info = client.get('/oembed', :url => @check)
 
 
     # elsif @show = content_type[2]
