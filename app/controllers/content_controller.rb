@@ -22,11 +22,11 @@ class ContentController < ApplicationController
       # n = (1 + rand(9))
 
       # @video = client.videos_by(:categories => [random_youtube_interest], :per_page => 50, :page => n, :fields => {:view_count => "5000"}).videos.shuffle.first
-      @video = Content.where(:interest_id => 11).shuffle.first.url
+      @video = Content.where(:interest_id => 7).shuffle.first.url
 
     elsif @show == content_type[1]
       #raise params.inspect
-      @check = Content.where(:interest_id => 17).shuffle.first.html
+      @check = Content.where(:interest_id => 6).shuffle.first.html
 
       # raise params.inspect
       #client = Soundcloud.new(:client_id => '2807db7b829c81b57f6eff2c8d862e2a')
