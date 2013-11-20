@@ -7,6 +7,8 @@ gem 'bcrypt-ruby', '3.0.0'
 gem 'youtube_it'
 gem 'soundcloud'
 
+gem 'rails_12factor', group: :production
+
 group :assets do
   gem 'sass-rails',  '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
