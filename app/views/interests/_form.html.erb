@@ -1,6 +1,6 @@
 <%= form_tag '/interests', :method => :post do %>
 
-<h2>What do you listen to?</h2>
+<h1>What do you listen to?</h1>
 
 <div data-role="fieldcontain">
   <fieldset data-role="controlgroup">
@@ -12,7 +12,7 @@
   </fieldset>
 </div>
 
-<h2>What do you watch on YouTube?</h2>
+<h1>What do you watch on YouTube?</h1>
 
 <div data-role="fieldcontain">
   <fieldset data-role="controlgroup">
@@ -24,6 +24,6 @@
    </fieldset>
 </div>
 
-<%= button_to 'submit' %>
+<%= button_to 'submit', "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
 
 <% end %>

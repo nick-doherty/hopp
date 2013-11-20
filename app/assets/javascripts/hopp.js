@@ -1,7 +1,7 @@
 var clock = null;
 
 var all_done = function () {
-  $.mobile.changePage( "../end", { transition: "slide"});
+  $.mobile.changePage( "../end", { transition: "flip"});
 };
 
 $(document).ready(function () {
@@ -19,7 +19,7 @@ $(document).ready(function () {
       clock = setTimeout(all_done, duration * 1000); // Wait duration (in milliseconds);
 
       // navigate to first hop -- check how to navigate within jqM
-     $.mobile.changePage( "/content/1", { transition: "slide"});
+     $.mobile.changePage( "/content/1", { transition: "flip"});
 
     }
   });

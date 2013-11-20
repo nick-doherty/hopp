@@ -3,9 +3,10 @@
 <p>Fill up your time with your favourite content. Every second counts.</p>
 
 <%if @current_user.present? %>
-  <%= button_to 'Let\'s hopp!', begin_path, :method => :get, "data-role" => "button" %>
-  <%= button_to 'Logout', logout_path, :method => :delete, "data-role" => "button" %>
+  <%= button_to 'Let\'s hopp!', begin_path, :method => :get, "data-inline" => "true", "data-role" => "button", "data-icon" => "check", "data-iconpos" => "top" %>
 <% else %>
-  <%= link_to 'Sign Up', new_user_path, "data-role" => "button" %>
-  <%= button_to 'Login', user_login_path, "data-role" => "button" %>
+  <%= link_to 'Sign Up', new_user_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
+  <%= button_to 'Login', user_login_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
 <% end %>
+
+

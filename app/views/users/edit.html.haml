@@ -1,8 +1,8 @@
 %div
 
-  = link_to 'Edit Your Interests', edit_interest_path(@current_user), {:class => 'button_right', :data => {:role => 'button', :icon => 'gear', :mini => 'true', :inline => 'true' }}
+  = link_to 'Edit Your Interests', edit_interest_path(@current_user), {:class => 'button_right chat', :data => {:role => 'button', :icon => 'gear', :mini => 'true', :iconpos => 'left', :inline => 'true' }}
 
-  %h2= "Change Password"
+  %h1= "Change Password"
   = form_for @user do |f|
     %div{ :data => {:role => 'fieldcontain' }}
       =f.label :name
@@ -16,4 +16,4 @@
     %div{ :data => {:role => 'fieldcontain' }}
       =f.label :password_confirmation
       =f.password_field :password_confirmation
-    =f.submit 'Submit'
+    =f.submit 'Submit', {:data => {:role => 'button', :icon => 'check', :iconpos => 'top', :inline => 'true' }}

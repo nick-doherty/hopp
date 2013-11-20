@@ -1,14 +1,14 @@
 %div
   %div.user-login
     %div.login-box
-      %h2.white Enter your Username and Password
+      %h1.white Enter your Username and Password
       %p.white note: Username and Password are case sensitive!
 
       = form_tag '/user/login' do
-        %div
+        %div{ :data => {:role => 'fieldcontain' }}
           =label_tag 'email', nil, :autofocus => true
           =text_field_tag 'email', nil
-        %div
+        %div{ :data => {:role => 'fieldcontain' }}
           =label_tag 'password'
           =password_field_tag 'password', nil
-        =submit_tag 'Login'
+        =submit_tag 'Login', {:data => {:role => 'button', :icon => 'check', :iconpos => 'top', :inline => 'true' }}
