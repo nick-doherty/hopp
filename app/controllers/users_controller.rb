@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      NotificationMailer.notification_email(@current_user.email).deliver
 
       # new path to set user interests
       redirect_to new_interest_path
