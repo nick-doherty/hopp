@@ -3,7 +3,7 @@
 # Table name: bookmarks
 #
 #  id         :integer          not null, primary key
-#  use_id     :integer
+#  user_id    :integer
 #  url        :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

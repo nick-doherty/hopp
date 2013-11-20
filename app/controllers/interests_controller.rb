@@ -11,17 +11,8 @@ class InterestsController < ApplicationController
   end
 
   def create
-
-    soundcloud = Source.find_by_source_name('soundcloud')
-
-    params[:user][:interest_ids].each do |interest_id|
-      @interest = Interest.find interest_id
-
-      @current_user.interests << @interest
-
-    end
-
-    youtube = Source.find_by_source_name('youtube')
+    @current_user.interests = []
+    @current_user.save
 
     params[:user][:interest_ids].each do |interest_id|
       @interest = Interest.find interest_id

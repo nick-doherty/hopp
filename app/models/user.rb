@@ -13,6 +13,6 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	attr_accessible :name, :email, :password, :password_confirmation
-	has_and_belongs_to_many :interests
+	has_and_belongs_to_many :interests, :uniq => true
 	has_many :bookmarks
 end
