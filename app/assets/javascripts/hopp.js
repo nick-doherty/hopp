@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 $(document).ready(function() {
   // Bind the swipeHandler callback function to the swipe event
-  $(window).on( "swipeleft", swipeHandler );
+  $(".content").on( "swipeleft", swipeHandler );
 
   // Callback function references the target and refreshes the page
   function swipeHandler( event ){
