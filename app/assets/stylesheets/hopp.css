@@ -1,5 +1,27 @@
-body {
-  font-family: 'Cabin', sans-serif;
+@font-face {
+    font-family: 'nanamiblack';
+    src: url('/assets/nanami-black-webfont.eot');
+    src: url('/assets/nanami-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/nanami-black-webfont.woff') format('woff'),
+         url('/assets/nanami-black-webfont.ttf') format('truetype'),
+         url('/assets/nanami-black-webfont.svg#nanamiblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nanamiextralight';
+    src: url('/assets/nanami-extralight-webfont.eot');
+    src: url('/assets/nanami-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/nanami-extralight-webfont.woff') format('woff'),
+         url('/assets/nanami-extralight-webfont.ttf') format('truetype'),
+         url('/assets/nanami-extralight-webfont.svg#nanamiextralight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+p {
+  font-family: 'nanamiextralight', sans-serif;
   font-size: large;
 }
 
@@ -7,59 +29,20 @@ h1 {
   font-family: 'Oswald', sans-serif;
 }
 
-.logo-large {
-
-}
-
 .container {
   text-align: center;
+}
+
+.logo-large {
+  font-family: 'nanamiblack', sans-serif;
+  font-size: 100px;
+  font-weight: 900;
 }
 
 .button_right {
   float: right;
 }
 
-.nav-glyphish-example .ui-btn .ui-btn-inner {
-  padding-top: 40px !important;
-}
+.minor {
 
-.nav-glyphish-example .ui-btn .ui-icon {
-  width: 30px!important;
-  height: 30px!important;
-  margin-left: -15px !important;
-  box-shadow: none!important;
-  -moz-box-shadow: none!important;
-  -webkit-box-shadow: none!important;
-  -webkit-border-radius: 0 !important;
-  border-radius: 0 !important;
-}
-
-#chat .ui-icon {
-  background:  url(app/assets/images/glyphish-icons/09-chat2.png) 50% 50% no-repeat;
-  background-size: 24px 22px;
-}
-
-#email .ui-icon {
-  background:  url(glyphish-icons/18-envelope.png) 50% 50% no-repeat;
-  background-size: 24px 16px;
-}
-
-#login .ui-icon {
-  background:  url(glyphish-icons/30-key.png) 50% 50% no-repeat;
-  background-size: 12px 26px;
-}
-
-#beer .ui-icon {
-  background:  url(glyphish-icons/88-beermug.png) 50% 50% no-repeat;
-  background-size: 22px 27px;
-}
-
-#coffee .ui-icon {
-  background:  url(glyphish-icons/100-coffee.png) 50% 50% no-repeat;
-  background-size: 20px 24px;
-}
-
-#skull .ui-icon {
-  background:  url(glyphish-icons/21-skull.png) 50% 50% no-repeat;
-  background-size: 22px 24px;
 }

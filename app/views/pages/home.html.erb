@@ -1,6 +1,6 @@
 <h1 class="logo-large">hopp</h1>
 
-<p>Fill up your time with your favourite content. Every second counts.</p>
+<p>Turbo-charge your morning commute. Super-size your lunch break. Fill up your time with the stuff you love and make every second count.</p>
 
 <%if @current_user.present? %>
   <%= button_to 'Let\'s hopp!', begin_path, :method => :get, "data-inline" => "true", "data-role" => "button", "data-icon" => "check", "data-iconpos" => "top" %>
@@ -8,5 +8,3 @@
   <%= link_to 'Sign Up', new_user_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
   <%= button_to 'Login', user_login_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
 <% end %>
-
-

@@ -12,25 +12,44 @@ $(document).ready(function () {
 
       var parts = $(this).val().split(':');
 
-      // Replace this with moment.js?
       var duration = parseInt(parts[0]) * 60 + parseInt(parts[1]);
-      var duration_milliseconds = duration * 100;
-      console.log( $(this).val(), duration, duration_milliseconds);
       clock = setTimeout(all_done, duration * 1000); // Wait duration (in milliseconds);
 
-      // navigate to first hop -- check how to navigate within jqM
+      // navigate to first hop
      $.mobile.changePage( "/content/1", { transition: "flip"});
 
-    }
+     //and bind duration to the window
+      window.counterTime = duration;
+      update_timer(); // kick things off
+    };
   });
 });
 
 $(document).ready(function() {
   // Bind the swipeHandler callback function to the swipe event
-  $(".content").on( "swipeleft", swipeHandler );
+  $(window).on( "swipeleft", swipeHandler );
 
   // Callback function references the target and refreshes the page
   function swipeHandler( event ){
     $.mobile.changePage('/content/' + Math.random(), {reloadPage: true})
   }
 });
+
+$(document).on('click', '#go-right', function () {
+  $(window).trigger('swipeleft');
+  return false;
+});
+
+var update_timer = function () {
+  window.counterTime = window.counterTime - 1;
+  var str = parseInt(window.counterTime / 60) + " minutes " + window.counterTime % 60 + " seconds";
+  $('#timer').text(str);
+  if (window.counterTime > 0) {
+      setTimeout(update_timer, 1000);
+  }
+}
+
+
+
+
+

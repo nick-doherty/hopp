@@ -18,11 +18,11 @@
   <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.durationbox.min.js"></script>
   <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
 </head>
- <div class="container">
-  <body>
+<body>
+  <div class="container">
     <div data-role="page" data-theme="b">
-      <div data-role="header" class="nav-glyphish-example">
-        <div data-role="navbar" class="nav-glyphish-example" data-grid="b">
+      <div data-role="header">
+        <div data-role="navbar" data-grid="b">
           <ul>
             <%== authentication_menu %>
           </ul>
@@ -32,9 +32,10 @@
         <%= yield %>
       </div>
       <div data-role="footer" data-position="fixed">
-        <p>&copy; Nick Doherty and Matt Thees, 2013</p>
+        <p class="minor">&copy; <a href="https://twitter.com/nickdoco">Nick Doherty</a> and <a href="https://twitter.com/mthees7">Matt Thees</a> for <a href="https://twitter.com/SydneyGA">General Assembly Sydney</a> and the world, 2013</p>
       </div>
     </div>
-  </body>
- </div> <!-- container -->
+  </div> <!-- container -->
+</body>
+
 </html>
