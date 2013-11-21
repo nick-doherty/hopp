@@ -20,6 +20,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'nanamithin';
+    src: url('/assets/nanami-thin-webfont.eot');
+    src: url('/assets/nanami-thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/nanami-thin-webfont.woff') format('woff'),
+         url('/assets/nanami-thin-webfont.ttf') format('truetype'),
+         url('/assets/nanami-thin-webfont.svg#nanamithin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 p {
   font-family: 'nanamiextralight', sans-serif;
   font-size: large;
@@ -33,6 +44,11 @@ h1 {
   text-align: center;
 }
 
+.content_container {
+  max-width: 700px;
+  text-align: left;
+}
+
 .logo-large {
   font-family: 'nanamiblack', sans-serif;
   font-size: 100px;
@@ -44,5 +60,6 @@ h1 {
 }
 
 .minor {
-
+  font-family: 'nanamiextralight', sans-serif;
+  font-size: small;
 }
