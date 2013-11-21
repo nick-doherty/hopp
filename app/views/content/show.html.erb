@@ -1,4 +1,8 @@
-<%== @html if @html %>
+<% if @html.present? %>
+  <div class="content_container">
+    <%== @html %>
+  </div>
+<% end %>
 
 <%== @track if @track %>
 
