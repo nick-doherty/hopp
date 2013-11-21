@@ -50,6 +50,21 @@ h1 {
   margin: auto;
 }
 
+.content_container img {
+  max-width: 100%;
+}
+
+.video_container {
+  max-width: 540px;
+  margin: auto
+}
+
+.video_container iframe {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+
 .logo-large {
   font-family: 'nanamiblack', sans-serif;
   font-size: 100px;

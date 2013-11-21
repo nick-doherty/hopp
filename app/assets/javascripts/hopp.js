@@ -31,7 +31,9 @@ $(document).ready(function() {
 
   // Callback function references the target and refreshes the page
   function swipeHandler( event ){
-    $.mobile.changePage('/content/' + Math.random(), {reloadPage: true})
+    if (window.counterTime) {
+      $.mobile.changePage('/content/' + Math.random(), {reloadPage: true})
+    }
   }
 });
 

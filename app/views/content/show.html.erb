@@ -6,7 +6,11 @@
 
 <%== @track if @track %>
 
-<%== @video if @video %>
+<%if @video.present? %>
+  <div class="video_container">
+    <%== @video if @video %>
+  </div>
+<%end%>
 
 <div data-role="controlgroup" data-type="horizontal" data-mini="true" class="button_right">
   <a href="index.html" data-role="button" data-rel="back" data-icon="arrow-l" data-iconpos="notext">Up</a>
