@@ -37,7 +37,7 @@ p {
 }
 
 .home_text {
-  font-family: 'Cabin', sans-serif;
+  font-family: 'nanami', sans-serif;
   font-size: large;
   color: white;
 }
@@ -102,3 +102,6 @@ h1 {
   font-size: small;
 }
 
+.twitter-share-button {
+  margin-left: 3em;
+}
