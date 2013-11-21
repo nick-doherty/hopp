@@ -28,6 +28,7 @@ class InterestsController < ApplicationController
 
     @soundcloud_interests = Interest.where(:source_id => Source.find_by_source_name('soundcloud').id)
     @youtube_interests = Interest.where(:source_id => Source.find_by_source_name('youtube').id )
+    @medium_interests = Interest.where(:source_id => Source.find_by_source_name('medium').id )
 
   end
 

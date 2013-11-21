@@ -1,8 +1,11 @@
 Source.destroy_all
 User.destroy_all
+Interest.destroy_all
+
 
 youtube = Source.create :source_name => 'youtube', :source_type => 'video'
 soundcloud = Source.create :source_name => 'soundcloud', :source_type => 'audio'
+medium = Source.create :source_name => 'medium', :source_type => 'article'
 
 user1 = User.create :name => 'Matthew', :email => 'matthew@gmail.com', :password => 'a', :password_confirmation => 'a'
 user2 = User.create :name => 'Nick', :email => 'nick@gmail.com', :password => 'a', :password_confirmation => 'a'
@@ -34,5 +37,30 @@ Interest.create :source_id => soundcloud.id, :interest_name => 'comedy'
 Interest.create :source_id => soundcloud.id, :interest_name => 'news'
 Interest.create :source_id => soundcloud.id, :interest_name => 'sports'
 Interest.create :source_id => soundcloud.id, :interest_name => 'books'
+
+Interest.create :source_id => medium.id, :interest_name => 'dear-blank'
+Interest.create :source_id => medium.id, :interest_name => 'adventures-in-consumer-technology'
+Interest.create :source_id => medium.id, :interest_name => 'american-dreamers'
+Interest.create :source_id => medium.id, :interest_name => 'best-thing-i-found-online-today'
+Interest.create :source_id => medium.id, :interest_name => 'better-humans'
+Interest.create :source_id => medium.id, :interest_name => 'changing-city'
+Interest.create :source_id => medium.id, :interest_name => 'book-excerpts'
+Interest.create :source_id => medium.id, :interest_name => 'comedy-corner'
+Interest.create :source_id => medium.id, :interest_name => 'design-startups'
+Interest.create :source_id => medium.id, :interest_name => 'customer-dissatisfaction'
+Interest.create :source_id => medium.id, :interest_name => 'design-ux'
+Interest.create :source_id => medium.id, :interest_name => 'freelancers-life'
+Interest.create :source_id => medium.id, :interest_name => 'geek-empire'
+Interest.create :source_id => medium.id, :interest_name => 'how-to-use-the-internet'
+Interest.create :source_id => medium.id, :interest_name => 'i-3-video-games'
+Interest.create :source_id => medium.id, :interest_name => 'life-hacks'
+Interest.create :source_id => medium.id, :interest_name => 'mobile-culture'
+Interest.create :source_id => medium.id, :interest_name => 'new-media'
+Interest.create :source_id => medium.id, :interest_name => 'on-startups'
+Interest.create :source_id => medium.id, :interest_name => 'sports-page'
+Interest.create :source_id => medium.id, :interest_name => 'this-could-be-better'
+Interest.create :source_id => medium.id, :interest_name => 'this-happened-to-me'
+Interest.create :source_id => medium.id, :interest_name => 'what-i-learned-today'
+Interest.create :source_id => medium.id, :interest_name => 'world-of-music'
 
 
