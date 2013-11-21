@@ -9,12 +9,13 @@ class ContentController < ApplicationController
   def show
 
     content_type = ['video', 'music', 'article']
-    random_number = [0, 1]# 2]
+    random_number = [0, 1, 2]
     i = random_number.shuffle.first
     @show = content_type[i]
 
     soundcloud_id = Source.find_by_source_name('soundcloud').id
     youtube_id = Source.find_by_source_name('youtube').id
+    medium_id = Source.find_by_source_name('medium').id
 
     if @show == content_type[0]
       # raise "whatever"
@@ -24,6 +25,14 @@ class ContentController < ApplicationController
       @track = Content.acquire_soundcloud_content(@current_user.interests.where(:source_id => soundcloud_id).shuffle.first.interest_name).shuffle.first.html
 
       #@check = Content.where(:interest_id => 17).shuffle.first.html
+    elsif @show == content_type[2]
+      random_feed_address = @current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name
+
+      page = Nokogiri::XML( open("https://medium.com/feed/#{random_feed_address}") )
+      links = page.xpath('rss/channel/item/link').map { |l| l.text }
+
+      article = Nokogiri::HTML(open(links.shuffle.first))
+      @html = article.css('.post-content-inner').inner_html
     end
     render 'show'
   end

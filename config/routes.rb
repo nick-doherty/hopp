@@ -13,7 +13,11 @@ HoppApp::Application.routes.draw do
     end
   end
 
-  resources :interests, :except => [:show]
+  resources :interests, :except => [:show, :edit] do
+    collection do
+      get 'edit'
+    end
+  end
 
   resources :content
 

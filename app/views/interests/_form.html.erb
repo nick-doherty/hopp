@@ -24,6 +24,18 @@
    </fieldset>
 </div>
 
+<h1>What do you read on Medium</h1>
+  <!-- add a link to medium so they can check out the pages? -->
+<div data-role="fieldcontain">
+  <fieldset data-role="controlgroup">
+    <% @medium_interests.order(:interest_name).each do |interest| %>
+        <%= check_box_tag 'user[interest_ids][]', interest.id,
+                          interest.id.in?(@current_user.interest_ids), :id => "m_#{interest.id}" %>
+        <label for="m_<%= interest.id %>"><%= interest.interest_name %></label>
+    <% end %>
+   </fieldset>
+</div>
+
 <%= button_to 'submit', "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
 
 <% end %>

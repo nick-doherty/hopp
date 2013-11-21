@@ -1,6 +1,6 @@
 %div
 
-  = link_to 'Edit Your Interests', edit_interest_path(@current_user), {:class => 'button_right chat', :data => {:role => 'button', :icon => 'gear', :mini => 'true', :iconpos => 'left', :inline => 'true' }}
+  = link_to 'Edit Your Interests', edit_interests_path, {:class => 'button_right chat', :data => {:role => 'button', :icon => 'gear', :mini => 'true', :iconpos => 'left', :inline => 'true' }}
 
   %h1= "Change Password"
   = form_for @user do |f|
