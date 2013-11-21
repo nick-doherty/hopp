@@ -36,6 +36,12 @@ p {
   font-size: large;
 }
 
+.home_text {
+  font-family: 'Cabin', sans-serif;
+  font-size: large;
+  color: white;
+}
+
 h1 {
   font-family: 'Cabin', sans-serif;
 }
@@ -50,8 +56,19 @@ h1 {
   margin: auto;
 }
 
+.home {
+  background-color: grey;
+  background: rgba(79, 83, 90, 0.7);
+  border-radius: 15px;
+}
+
 .content_container img {
   max-width: 100%;
+}
+
+.content_container .btn-set, .content_container .follow-wrapper, .content_container iframe {
+  display: none;
+  visibility: hidden;
 }
 
 .video_container {
@@ -69,6 +86,7 @@ h1 {
   font-family: 'nanamiblack', sans-serif;
   font-size: 100px;
   font-weight: 900;
+  color: white;
 }
 
 .button_right {
@@ -79,8 +97,8 @@ h1 {
   float: left;
 }
 
-
 .minor {
   font-family: 'nanamiextralight', sans-serif;
   font-size: small;
 }
+
