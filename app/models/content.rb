@@ -79,6 +79,23 @@ class Content < ActiveRecord::Base
     videos
   end
 
+  def self.acquire_medium_content(interest)
+    article = Content.where(:interest_id => Interest.find_by_interest_name(interest).id)#.where('date > two weeks ago')
+    if (article.length === 0)
+      tracks = self.populate_medium(interest)
+    end
+    tracks
+  end
+
+  def self.populate_medium(interest)
+    page = Nokogiri::XML( open("https://medium.com/feed/#{random_feed_address}") )
+    links = page.xpath('rss/channel/item/link').map { |l| l.text }
+
+    article = Nokogiri::HTML(open(links.shuffle.first))
+    @html = article.css('.post-content-inner').inner_html
+  end
+
+
 end
 
     # whats below probably belongs in the controller
