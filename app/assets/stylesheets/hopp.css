@@ -37,7 +37,7 @@ p {
 }
 
 h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Cabin', sans-serif;
 }
 
 .container {
@@ -47,6 +47,7 @@ h1 {
 .content_container {
   max-width: 700px;
   text-align: left;
+  margin: auto;
 }
 
 .logo-large {
@@ -58,6 +59,11 @@ h1 {
 .button_right {
   float: right;
 }
+
+.button_left {
+  float: left;
+}
+
 
 .minor {
   font-family: 'nanamiextralight', sans-serif;
