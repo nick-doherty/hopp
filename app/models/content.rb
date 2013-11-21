@@ -12,7 +12,7 @@
 #
 
 class Content < ActiveRecord::Base
-	attr_accessible :url, :duration, :interest_id
+	attr_accessible :url, :duration, :interest_id, :html
 	has_and_belongs_to_many :interests
   set_table_name "content"
 
@@ -38,6 +38,7 @@ class Content < ActiveRecord::Base
     tracks = tracks.map do |track|
       content = Content.new
       content.url = track.uri
+      content.duration = track.duration/1000
       content.html = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=#{CGI.escape track.uri}&show_artwork=true&client_id=2807db7b829c81b57f6eff2c8d862e2a\"></iframe>"
       content.interest_id = interest_id
       content.save
@@ -70,6 +71,7 @@ class Content < ActiveRecord::Base
       videos = videos.map do |video|
         content = Content.new
         content.url = video.embed_html5
+        content.duration = video.duration
         content.interest_id = interest_id
 
         content.save
@@ -80,19 +82,26 @@ class Content < ActiveRecord::Base
   end
 
   def self.acquire_medium_content(interest)
-    article = Content.where(:interest_id => Interest.find_by_interest_name(interest).id)#.where('date > two weeks ago')
+    article = Content.where(:interest_id => Interest.find_by_interest_name(interest).id)
     if (article.length === 0)
-      tracks = self.populate_medium(interest)
+      article = self.populate_medium(interest)
     end
-    tracks
+    article
   end
 
   def self.populate_medium(interest)
-    page = Nokogiri::XML( open("https://medium.com/feed/#{random_feed_address}") )
+    page = Nokogiri::XML( open("https://medium.com/feed/#{interest}") )
     links = page.xpath('rss/channel/item/link').map { |l| l.text }
 
-    article = Nokogiri::HTML(open(links.shuffle.first))
-    @html = article.css('.post-content-inner').inner_html
+    interest_id = Interest.find_by_interest_name(interest).id
+
+    links.each do |link|
+      page = Nokogiri::HTML( open(link) )
+      Content.create :url => link, :html => page.css('.post-content-inner').inner_html, :duration => 120, :interest_id => interest_id
+    end
+    # article = Nokogiri::HTML(open(links.shuffle.first))
+    # html = article.css('.post-content-inner').inner_html
+
   end
 
 
