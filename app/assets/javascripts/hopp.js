@@ -32,7 +32,7 @@ $(document).ready(function() {
   // Callback function references the target and refreshes the page
   function swipeHandler( event ){
     if (window.counterTime) {
-      $.mobile.changePage('/content/' + Math.random(), {reloadPage: true})
+      $.mobile.changePage('/content/' + window.counterTime, {reloadPage: true})
     }
   }
 });
