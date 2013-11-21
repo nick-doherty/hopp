@@ -4,13 +4,16 @@ class InterestsController < ApplicationController
   def new
     soundcloud = Source.find_by_source_name "soundcloud"
     youtube = Source.find_by_source_name "youtube"
+    medium = Source.find_by_source_name "medium"
 
     @soundcloud_interests = Interest.where(:source_id => soundcloud.id)
     @youtube_interests = Interest.where(:source_id => youtube.id)
+    @medium_interests = Interest.where(:source_id => medium.id)
 
   end
 
   def create
+
     @current_user.interests = []
     @current_user.save
 
