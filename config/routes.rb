@@ -1,6 +1,7 @@
 HoppApp::Application.routes.draw do
   root :to => 'pages#home'
 
+  get '/home' => 'pages#home2'
   get '/user/login' => 'session#new'
   post '/user/login' => 'session#create'
   delete '/user/login' => 'session#destroy', :as => 'logout'
