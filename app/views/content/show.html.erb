@@ -8,21 +8,22 @@
   <a href="#show-count" id="time-check" data-role="button" data-rel="popup" data-icon="info" data-iconpos="left" data-inline="true">Time left</a>
 </div>
 
-<% if @html.present? %>
-  <h3> via <a href="http://www.medium.com" target="_blank">Medium</a></h3>
-  <div class="content_container">
-    <%== @html %>
-  </div>
-<% end %>
+<div class="whatever_content">
+  <% if @html.present? %>
+    <h3> via <a href="http://www.medium.com" target="_blank">Medium</a></h3>
+    <div class="content_container">
+      <%== @html %>
+    </div>
+  <% end %>
 
-<%== @track if @track %>
+  <%== @track if @track %>
 
-<%if @video.present? %>
-  <div class="video_container">
-    <%== @video if @video %>
-  </div>
-<%end%>
-
+  <%if @video.present? %>
+    <div class="video_container">
+      <%== @video if @video %>
+    </div>
+  <%end%>
+</div>
 <div data-role="content">
 
   <div id="show-count" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="d">

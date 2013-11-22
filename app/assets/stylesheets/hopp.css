@@ -65,9 +65,15 @@ div.ui-input-text {
 }
 
 .content_container {
-  max-width: 700px;
-  text-align: left;
-  margin: auto;
+max-width: 700px;
+text-align: left;
+margin: auto;
+background: rgba(237, 237, 237, 0.5);
+border-radius: 15px;
+color: aliceblue;
+padding: 20px;
+color: white;
+
 }
 
 .home {
@@ -79,6 +85,7 @@ div.ui-input-text {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
+  text-shadow: none;
 }
 
 .content_container img {
@@ -127,4 +134,8 @@ div.ui-input-text {
 
 .ui-mobile-viewport {
   padding-top: 20px;
+}
+
+.whatever_content {
+  margin-top: 57px;
 }
