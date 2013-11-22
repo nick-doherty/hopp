@@ -46,6 +46,20 @@ h1 {
   font-family: 'Cabin', sans-serif;
 }
 
+.ui-content {
+  background-color: none;
+}
+
+div.ui-input-text {
+  background-color: white;
+}
+
+
+ .ui-body-b {
+  background-color: #91C4BE;
+}
+
+
 .container {
   text-align: center;
 }
@@ -109,4 +123,8 @@ h1 {
 
 .twitter-share-button {
   margin-left: 3em;
+}
+
+.ui-mobile-viewport {
+  padding-top: 20px;
 }
