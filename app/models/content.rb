@@ -19,8 +19,8 @@ class Content < ActiveRecord::Base
   #===============
   # Soundcloud
   #===============
-  def self.acquire_soundcloud_content(interest)
-    tracks = Content.where(:interest_id => Interest.find_by_interest_name(interest).id)#.where('date > two weeks ago')
+  def self.acquire_soundcloud_content(interest, duration = 120)
+    tracks = Content.where(:interest_id => Interest.find_by_interest_name(interest).id, :duration => (0..duration))#.where('date > two weeks ago')
     if (tracks.length === 0)
       tracks = self.populate_soundcloud(interest)
     end
@@ -50,8 +50,8 @@ class Content < ActiveRecord::Base
   #===============
   # Youtube
   #===============
-  def self.acquire_youtube_content(interest)
-    videos = Content.where(:interest_id => Interest.find_by_interest_name(interest).id)#.where('date > two weeks ago')
+  def self.acquire_youtube_content(interest, duration = 120)
+    videos = Content.where(:interest_id => Interest.find_by_interest_name(interest).id, :duration => (0..duration))#.where('date > two weeks ago')
     if (videos.length === 0)
       videos = self.populate_youtube(interest)
     end
@@ -81,7 +81,7 @@ class Content < ActiveRecord::Base
     videos
   end
 
-  def self.acquire_medium_content(interest)
+  def self.acquire_medium_content(interest, duration = 120)
     article = Content.where(:interest_id => Interest.find_by_interest_name(interest).id)
     if (article.length === 0)
       article = self.populate_medium(interest)

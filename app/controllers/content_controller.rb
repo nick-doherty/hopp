@@ -8,7 +8,7 @@ class ContentController < ApplicationController
 
   def show
 
-    duration = params[:id]
+    duration = params[:id].to_i
 
     content_type = ['video', 'music', 'article']
     random_number = [0, 1, 2]
@@ -21,16 +21,16 @@ class ContentController < ApplicationController
 
     if @show == content_type[0]
       # raise "whatever"
-      @video = Content.acquire_youtube_content(@current_user.interests.where(:source_id => youtube_id).shuffle.first.interest_name).shuffle.first.url
+      @video = Content.acquire_youtube_content(@current_user.interests.where(:source_id => youtube_id).shuffle.first.interest_name, duration).shuffle.first.url
 
     elsif @show == content_type[1]
-      @track = Content.acquire_soundcloud_content(@current_user.interests.where(:source_id => soundcloud_id).shuffle.first.interest_name).shuffle.first.html
+      @track = Content.acquire_soundcloud_content(@current_user.interests.where(:source_id => soundcloud_id).shuffle.first.interest_name, duration).shuffle.first.html
 
       #@check = Content.where(:interest_id => 17).shuffle.first.html
     elsif @show == content_type[2]
 
      # raise "whatever"
-      @html = Content.acquire_medium_content(@current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name).shuffle.first.html
+      @html = Content.acquire_medium_content(@current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name, duration).shuffle.first.try(:html)
       #raise params.inspect
       #random_feed_address = @current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name
 
