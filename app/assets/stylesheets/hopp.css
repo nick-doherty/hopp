@@ -88,6 +88,10 @@ color: white;
   text-shadow: none;
 }
 
+.home h1 {
+  margin-top: 30px
+}
+
 .content_container img {
   max-width: 100%;
 }
