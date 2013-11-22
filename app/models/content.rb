@@ -87,6 +87,7 @@ class Content < ActiveRecord::Base
       article = self.populate_medium(interest)
     end
     article
+    #raise "error"
   end
 
   def self.populate_medium(interest)
@@ -95,10 +96,11 @@ class Content < ActiveRecord::Base
 
     interest_id = Interest.find_by_interest_name(interest).id
 
-    links.each do |link|
+    articles = links.map do |link|
       page = Nokogiri::HTML( open(link) )
       Content.create :url => link, :html => page.css('.post-content-inner').inner_html, :duration => 120, :interest_id => interest_id
     end
+    articles
     # article = Nokogiri::HTML(open(links.shuffle.first))
     # html = article.css('.post-content-inner').inner_html
 

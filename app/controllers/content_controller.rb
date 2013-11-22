@@ -28,10 +28,8 @@ class ContentController < ApplicationController
 
       #@check = Content.where(:interest_id => 17).shuffle.first.html
     elsif @show == content_type[2]
+      @html = Content.acquire_medium_content(@current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name).shuffle.first.try(:html)
 
-     # raise "whatever"
-      @html = Content.acquire_medium_content(@current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name, duration).shuffle.first.try(:html)
-      #raise params.inspect
       #random_feed_address = @current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name
 
       #page = Nokogiri::XML( open("https://medium.com/feed/#{random_feed_address}") )
