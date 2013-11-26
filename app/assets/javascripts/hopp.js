@@ -16,9 +16,9 @@ $(document).ready(function () {
       clock = setTimeout(all_done, duration * 1000); // Wait duration (in milliseconds);
 
       // navigate to first hop
-     $.mobile.changePage( "/content/1", { transition: "flip"});
+    $.mobile.changePage( "/content/1", { transition: "flip"});
 
-     //and bind duration to the window
+    //and bind duration to the window
       window.counterTime = duration;
       update_timer(); // kick things off
     };
@@ -37,6 +37,22 @@ $(document).ready(function() {
   }
 });
 
+$(document).off('click', '.bookmark').on('click', '.bookmark', function(event) {
+  var $this = $(this);
+  $.ajax({
+    type: 'post',
+    url: '/bookmarks',
+    data: {
+        url: window.current_url
+    }
+  }).done(function () {
+    // Update the button.
+    $this.find('.ui-btn-text').text('Hoppmarked')
+    $this.find('.ui-icon .ui-icon-star').css('background-color', 'yellow');
+  });
+});
+
+
 $(document).on('click', '#go-right', function () {
   $(window).trigger('swipeleft');
   return false;
@@ -50,8 +66,3 @@ var update_timer = function () {
       setTimeout(update_timer, 1000);
   }
 }
-
-
-
-
-
