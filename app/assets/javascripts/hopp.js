@@ -37,6 +37,22 @@ $(document).ready(function() {
   }
 });
 
+$(document).off('click', '.bookmark').on('click', '.bookmark', function(event) {
+  var $this = $(this);
+  $.ajax({
+    type: 'post',
+    url: '/bookmarks',
+    data: {
+        url: window.current_url
+    }
+  }).done(function () {
+    // Update the button.
+    $this.find('.ui-btn-text').text('Hoppmarked')
+    $this.find('ui-icon ui-icon-star').css('background-color', 'yellow');
+  });
+});
+
+
 $(document).on('click', '#go-right', function () {
   $(window).trigger('swipeleft');
   return false;

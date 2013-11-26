@@ -37,7 +37,7 @@ class Content < ActiveRecord::Base
     #save this ish to the db
     tracks = tracks.map do |track|
       content = Content.new
-      content.url = track.uri
+      content.url = track.permalink_url
       content.duration = track.duration/1000
       content.html = "<iframe width=\"100%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=#{CGI.escape track.uri}&show_artwork=true&client_id=2807db7b829c81b57f6eff2c8d862e2a\"></iframe>"
       content.interest_id = interest_id
@@ -70,7 +70,8 @@ class Content < ActiveRecord::Base
 
       videos = videos.map do |video|
         content = Content.new
-        content.url = video.embed_html5
+        content.html = video.embed_html5
+        content.url = video.player_url
         content.duration = video.duration
         content.interest_id = interest_id
 

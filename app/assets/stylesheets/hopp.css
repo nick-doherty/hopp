@@ -65,15 +65,14 @@ div.ui-input-text {
 }
 
 .content_container {
-max-width: 700px;
-text-align: left;
-margin: auto;
-background: rgba(237,237,237,0.5);
-border-radius: 15px;
-padding: 20px;
-color: black;
-text-shadow: none;
-
+  max-width: 700px;
+  text-align: left;
+  margin: auto;
+  background: rgba(237,237,237,0.5);
+  border-radius: 15px;
+  padding: 20px;
+  color: black;
+  text-shadow: none;
 }
 
 .home {
@@ -133,7 +132,6 @@ text-shadow: none;
 }
 
 .twitter-share-button {
-  margin-left: 3em;
 }
 
 .ui-mobile-viewport {
@@ -143,3 +141,33 @@ text-shadow: none;
 .whatever_content {
   margin-top: 57px;
 }
+
+.end_page {
+  max-width: 650px;
+  min-height: 300px;
+  margin: auto;
+  margin-top: 75px;
+  padding: 10px 10px;
+  background: rgba(237,237,237,0.5);
+  text-shadow: none;
+  border-radius: 15px;
+}
+
+.bookmarks_table {
+  margin: auto;
+  display: inline-block;
+  text-shadow: none;
+}
+
+.about {
+  background-color: grey;
+  background: rgba(79, 83, 90, 0.7);
+  border-radius: 15px;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px 20px;
+  text-shadow: none;
+}
+
+
+

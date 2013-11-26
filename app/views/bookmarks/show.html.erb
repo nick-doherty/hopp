@@ -1,0 +1,30 @@
+<h1>Hoppmarks</h1>
+
+<div class="bookmarks_table">
+  <%if @current_user.bookmarks.present? %>
+
+    <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">
+      <thead>
+        <tr>
+          <th data-priority="1"></th>
+          <th data-priority="persist">URL</th>
+          <th data-priority="2">Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% i = 1 %>
+        <%@current_user.bookmarks.each do |bookmark|%>
+          <tr>
+            <th><%= i %></th>
+            <td><a href="<%= bookmark.url %>" target="_blank" data-rel="external"><%=bookmark.url%></a></td>
+            <td><%= bookmark.created_at %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+
+  <%else%>
+    <h3>It doesn't appear that you have Hoppmarked anything..</h3>
+    <h5><a href="/begin">Click Here</a> to start Hopping and click the "Hoppmark" button to create a Hoppmark</h5>
+  <%end%>
+</div>
