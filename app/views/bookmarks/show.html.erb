@@ -17,7 +17,8 @@
           <tr>
             <th><%= i %></th>
             <td><a href="<%= bookmark.url %>" target="_blank" data-rel="external"><%=bookmark.url%></a></td>
-            <td><%= bookmark.created_at %></td>
+            <td><%= time_tag bookmark.created_at %></td>
+            <%i = i + 1%>
           </tr>
         <%end%>
       </tbody>
