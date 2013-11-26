@@ -49,6 +49,7 @@ $(document).off('click', '.bookmark').on('click', '.bookmark', function(event) {
     // Update the button.
     $this.find('.ui-btn-text').text('Hoppmarked')
     $this.find('.ui-icon .ui-icon-star').css('background-color', 'yellow');
+
   });
 });
 

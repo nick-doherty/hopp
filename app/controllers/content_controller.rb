@@ -7,7 +7,6 @@ class ContentController < ApplicationController
   end
 
   def show
-
     duration = params[:id].to_i
 
     content_type = ['video', 'music', 'article']
@@ -19,24 +18,20 @@ class ContentController < ApplicationController
     youtube_id = Source.find_by_source_name('youtube').id
     medium_id = Source.find_by_source_name('medium').id
 
-    if @show == content_type[0]
-      # raise "whatever"
-      @video = Content.acquire_youtube_content(@current_user.interests.where(:source_id => youtube_id).shuffle.first.interest_name, duration).shuffle.first.url
+    if @show == content_type[0] #video
+      video = Content.acquire_youtube_content(@current_user.interests.where(:source_id => youtube_id).shuffle.first.interest_name, duration).shuffle.first
+      @youtube_content = video.html
+      @url = video.url
 
-    elsif @show == content_type[1]
-      @track = Content.acquire_soundcloud_content(@current_user.interests.where(:source_id => soundcloud_id).shuffle.first.interest_name, duration).shuffle.first.html
+    elsif @show == content_type[1] #music
+      song = Content.acquire_soundcloud_content(@current_user.interests.where(:source_id => soundcloud_id).shuffle.first.interest_name, duration).shuffle.first
+      @soundcloud_content = song.html
+      @url = song.url
 
-      #@check = Content.where(:interest_id => 17).shuffle.first.html
-    elsif @show == content_type[2]
-      @html = Content.acquire_medium_content(@current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name).shuffle.first.try(:html)
-
-      #random_feed_address = @current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name
-
-      #page = Nokogiri::XML( open("https://medium.com/feed/#{random_feed_address}") )
-      #links = page.xpath('rss/channel/item/link').map { |l| l.text }
-
-      #article = Nokogiri::HTML(open(links.shuffle.first))
-      #@html = article.css('.post-content-inner').inner_html
+    elsif @show == content_type[2] #article
+      article = Content.acquire_medium_content(@current_user.interests.where(:source_id => medium_id).shuffle.first.interest_name).shuffle.first
+      @medium_content = article.html
+      @url = article.url
 
     end
     render 'show'

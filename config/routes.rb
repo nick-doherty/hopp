@@ -7,6 +7,9 @@ HoppApp::Application.routes.draw do
   delete '/user/login' => 'session#destroy', :as => 'logout'
   get '/begin' => 'pages#begin'
   get '/end' => 'pages#end'
+  get '/bookmarks' => 'bookmarks#show'
+  post '/bookmarks' => 'bookmarks#create'
+  get '/about' => 'pages#about'
 
   resources :users, :except => [:edit] do
     collection do

@@ -1,4 +1,6 @@
 
+
+
 <div data-role="controlgroup" data-type="horizontal" data-mini="true" class="button_right">
   <a href="index.html" data-role="button" data-rel="back" data-icon="arrow-l" data-iconpos="notext">Up</a>
   <a href="index.html" id="go-right" data-role="button" data-icon="arrow-r" data-iconpos="notext">Down</a>
@@ -8,19 +10,29 @@
   <a href="#show-count" id="time-check" data-role="button" data-rel="popup" data-icon="info" data-iconpos="left" data-inline="true">Time left</a>
 </div>
 
+<script>
+  window.current_url = '<%= @url %>';
+</script>
+
+<div data-role="controlgroup" data-type="horizontal" data-mini="true" class="button_left">
+  <a class="bookmark" data-role="button" data-icon="star" data-iconpos="left" data-inline="true">Hoppmark</a>
+</div>
+
+
+
 <div class="whatever_content">
-  <% if @html.present? %>
+  <% if @medium_content.present? %>
     <h3> via <a href="http://www.medium.com" target="_blank">Medium</a></h3>
     <div class="content_container">
-      <%== @html %>
+      <%== @medium_content %>
     </div>
   <% end %>
 
-  <%== @track if @track %>
+  <%== @soundcloud_content if @soundcloud_content %>
 
-  <%if @video.present? %>
+  <%if @youtube_content.present? %>
     <div class="video_container">
-      <%== @video if @video %>
+      <%== @youtube_content if @youtube_content %>
     </div>
   <%end%>
 </div>
