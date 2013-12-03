@@ -169,5 +169,57 @@ div.ui-input-text {
   text-shadow: none;
 }
 
+.about .small-text {
+  font-size: 12px;
+}
 
+.about .strong {
+  text-decoration: underline;
+}
 
+.about a, .ui-body-b .ui-link:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.social-link-circle {
+  height: 50px;
+  width: 50px;
+  background-color: grey;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.social-link-circle i {
+  padding-top: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+.no-text-shadow {
+  text-shadow: none;
+}
+
+i {
+
+}
+
+.thanks {
+  position: absolute;
+  bottom: 70px;
+  left: 35%;
+  right: 35%;
+}
+
+.sign label {
+  display: block;
+  text-shadow: none;
+  font-size: 14px;
+  padding-top: 8px;
+}
+.sign {
+  max-width: 500px;
+  margin: auto;
+}
