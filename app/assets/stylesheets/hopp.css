@@ -223,3 +223,7 @@ i {
   max-width: 500px;
   margin: auto;
 }
+
+a.social {
+  text-decoration: none;
+}
