@@ -6,8 +6,10 @@
   <%if @current_user.present? %>
     <%= button_to 'Hopp to it!', begin_path, :method => :get, "data-inline" => "true", "data-role" => "button", "data-icon" => "check", "data-iconpos" => "top" %>
   <% else %>
-    <%= link_to 'Sign Up', new_user_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
+    <%= link_to 'Sign Up', new_user_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "plus", "data-iconpos" => "top" %>
     <%= link_to 'Login', user_login_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
+    <h2> or.. </h2>
+    <%= link_to 'Try it Out', demo_path, "class" => "demo-button", "data-role" => "button", "data-block" => "true", "data-icon" => "arrow-r", "data-iconpos" => "top" %>
   <% end %>
 
 <script>

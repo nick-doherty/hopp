@@ -11,6 +11,7 @@ HoppApp::Application.routes.draw do
   post '/bookmarks' => 'bookmarks#create'
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
+  get '/demo' => 'pages#demo'
 
   resources :users, :except => [:edit] do
     collection do
