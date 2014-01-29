@@ -244,6 +244,7 @@ i {
   font-size: 14px;
   padding-top: 8px;
 }
+
 .sign {
   max-width: 500px;
   margin: auto;
@@ -287,13 +288,13 @@ a.demo {
   margin-top: 100px;
 }
 
-.ui-btn,
+/*.ui-btn,
 .ui-shadow,
 .ui-btn-corner-all,
 .ui-btn-inline,
 .ui-btn-icon-top,
 .ui-btn-up-b {
   min-width: 140px;
-}
+}*/
 
 
