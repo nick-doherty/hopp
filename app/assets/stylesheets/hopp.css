@@ -202,10 +202,10 @@ div.ui-input-text {
   text-decoration: underline;
 }
 
-.about a, .ui-body-b .ui-link:visited {
+/*.about a, .ui-body-b .ui-link:visited {
   text-decoration: none;
-  color: black;
-}
+  color: white;
+}*/
 
 .social-link-circle {
   height: 50px;
@@ -296,4 +296,7 @@ a.demo {
   min-width: 140px;
 }
 
+div.navbar a.ui-link {
+  color: white;
+}
 

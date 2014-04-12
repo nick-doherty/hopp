@@ -1,0 +1,10 @@
+<div class="container">
+<% if @current_user.present? %>
+  <ul class="nav navbar-nav">
+    <li><%= link_to('Home', home_path) %></li>
+    <li><%= link_to('Edit Profile', edit_users_path) %></li>
+    <li><%= link_to(@current_user.name + "'s" + ' Hoppmarks') %></li>
+    <li><%= link_to('Logout ' + @current_user.name, logout_path) %></li>
+  </ul>
+<%end%>
+</div>

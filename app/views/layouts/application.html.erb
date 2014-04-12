@@ -10,9 +10,8 @@
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
   <link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" />
   <link href='http://fonts.googleapis.com/css?family=Cabin:400,700|Oswald:400,700' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
 
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
   <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
   <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
@@ -21,23 +20,22 @@
 
   <link rel="stylesheet" href="path/to/add2home.css">
   <script type="application/javascript" src="path/to/add2home.js"></script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
   <div class="container">
-    <div data-role="page" data-theme="b">
-      <div data-role="header">
-        <div data-role="navbar" data-grid="c">
-          <ul>
-            <%== authentication_menu %>
-          </ul>
-        </div>
-      </div>
-      <div data-role="content">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="collapse navbar-collapse">
+        <%= render 'layouts/navigation' %>
+      </div><!--/.nav-collapse -->
+    </div>
+
+      <div>
         <%= yield %>
       </div>
-      <div data-role="footer" data-position="fixed">
-        <p class="minor"><a href="/contact">Contact</a> | <a href="/about">About</a> | <a href="https://twitter.com/nickdoco">@nickdoco</a> and <a href="https://twitter.com/mthees7">@mthees7</a>, &copy;2013</p>
+      <div>
+        <p class="minor"><a href="/contact">Contact</a> | <a href="/about">About</a> | Hopp &copy;2013</p>
       </div>
     </div>
   </div> <!-- container -->
