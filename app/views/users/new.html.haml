@@ -7,16 +7,16 @@
   %h2= "Create a User Account"
 
   = form_for @user do |f|
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :name
       =f.text_field :name, :autofocus => true
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :email
       =f.text_field :email
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :password
       =f.password_field :password
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :password_confirmation
       =f.password_field :password_confirmation, :class => 'form-control'
-    =f.submit 'Sign Up', {:data => {:role => 'button', :icon => 'check', :iconpos => 'top', :inline => 'true' }}
+    =f.submit 'Sign Up'

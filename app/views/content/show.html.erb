@@ -1,13 +1,15 @@
 
 
 
+
 <div data-role="controlgroup" data-type="horizontal" data-mini="true" class="button_right">
-  <!-- <a href="index.html" data-role="button" data-rel="back" data-icon="arrow-l" data-iconpos="notext">Up</a> -->
+  <a href="index.html" data-role="button" data-rel="back" data-icon="arrow-l" data-iconpos="notext">Up</a>
   <a href="index.html" id="go-right" data-role="button" data-icon="arrow-r" data-iconpos="notext">Down</a>
+
 </div>
 
-<div data-role="controlgroup" data-type="horizontal" data-mini="true" class="button_left">
-  <a href="#show-count" id="time-check" data-role="button" data-rel="popup" data-icon="info" data-iconpos="left" data-inline="true">Time left</a>
+<div class="button_left">
+  <a href="#show-count">Time left</a>
 </div>
 
 <script>
@@ -38,9 +40,9 @@
 </div>
 <div data-role="content">
 
-  <div id="show-count" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="d">
+  <div id="show-count" data-role="popup">
 
-    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <a href="#" class="ui-btn-right">Close</a>
       <p><span id="timer">Timer is not running</span></p>
   </div>
 </div>

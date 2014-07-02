@@ -2,8 +2,8 @@
 
 <h1>What do you listen to?</h1>
 
-<div data-role="fieldcontain">
-  <fieldset data-role="controlgroup">
+<div>
+  <fieldset>
     <% @soundcloud_interests.order(:interest_name).each do |interest| %>
         <%= check_box_tag 'user[interest_ids][]', interest.id,
                           interest.id.in?(@current_user.interest_ids), :id => "sc_#{interest.id}" %>
@@ -14,8 +14,8 @@
 
 <h1>What do you watch on YouTube?</h1>
 
-<div data-role="fieldcontain">
-  <fieldset data-role="controlgroup">
+<div>
+  <fieldset>
     <% @youtube_interests.order(:interest_name).each do |interest| %>
         <%= check_box_tag 'user[interest_ids][]', interest.id,
                           interest.id.in?(@current_user.interest_ids), :id => "yt_#{interest.id}" %>
@@ -26,17 +26,16 @@
 
 <h1>What do you read on Medium</h1>
   <!-- add a link to medium so they can check out the pages? -->
-<div data-role="fieldcontain">
-  <fieldset data-role="controlgroup">
+<div>
+  <fieldset>
     <% @medium_interests.order(:interest_name).each do |interest| %>
-        <%= check_box_tag 'user[interest_ids][]', interest.id,
-                          interest.id.in?(@current_user.interest_ids), :id => "m_#{interest.id}" %>
+        <%= check_box_tag 'user[interest_ids][]', interest.id, interest.id.in?(@current_user.interest_ids), :id => "m_#{interest.id}" %>
         <label for="m_<%= interest.id %>"><%= interest.interest_name %></label>
     <% end %>
    </fieldset>
 </div>
 
-<%= button_to 'submit', "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
+<%= button_to 'submit' %>
 
 <% end %>
 

@@ -4,12 +4,12 @@
   <p class="home_text">Turbo-charge your morning commute. Take control of your study break. Super-size your lunch break. Fill your time with the stuff you love. Make every second count.</p>
 
   <%if @current_user.present? %>
-    <%= button_to 'Hopp to it!', begin_path, :method => :get, "data-inline" => "true", "data-role" => "button", "data-icon" => "check", "data-iconpos" => "top" %>
+    <%= button_to 'Hopp to it!', begin_path, :method => :get %>
   <% else %>
-    <%= link_to 'Sign Up', new_user_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
-    <%= link_to 'Login', user_login_path, "data-role" => "button", "data-inline" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
+    <%= link_to 'Sign Up', new_user_path %>
+    <%= link_to 'Login', user_login_path %>
     <h2> or.. </h2>
-    <%= link_to 'Try it Out', demo_path, "class" => "demo-button", "data-role" => "button", "data-block" => "true", "data-icon" => "check", "data-iconpos" => "top" %>
+    <%= link_to 'Try it Out', demo_path, "class" => "demo-button" %>
   <% end %>
 
 <script>

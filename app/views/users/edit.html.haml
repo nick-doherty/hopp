@@ -1,19 +1,18 @@
 %div.sign
 
-  = link_to 'Edit Your Interests', edit_interests_path, {:class => 'button_right chat', :data => {:role => 'button', :icon => 'gear', :mini => 'true', :iconpos => 'left', :inline => 'true' }}
-
+  = link_to 'Edit Your Interests', edit_interests_path, {:class => 'button_right chat'}
   %h1= "Change Password"
   = form_for @user do |f|
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :name
       =f.text_field :name, :autofocus => true
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :email
       =f.text_field :email
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :password
       =f.password_field :password
-    %div{ :data => {:role => 'fieldcontain' }}
+    %div
       =f.label :password_confirmation
       =f.password_field :password_confirmation
-    =f.submit 'Submit', {:data => {:role => 'button', :icon => 'check', :iconpos => 'top', :inline => 'true' }}
+    =f.submit 'Submit'
