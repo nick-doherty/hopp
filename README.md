@@ -1,4 +1,4 @@
-#Welcome to hopp...
+#Welcome to hopp..
 
 This app makes topical content discovery fun and easy, throwing you tailored content for your inputted time.
 
